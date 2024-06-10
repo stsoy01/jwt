@@ -1,0 +1,107 @@
+@import url('./public/assets/fonts/montserrat.css');
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #1e423c;
+    font-family: 'Montserrat';
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.flexBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0 50px;
+    min-width: 900px;
+    border-radius: 8px;
+}
+
+.flexBox_left {
+    width: 450px;
+    height: 600px;
+    padding: 0 20px;
+    background: #fff;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.flexBox_left_title {
+    margin: 30px 0 100px 0;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #0c584b;
+}
+
+.auth_desc {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: #0000008a;
+}
+
+.legend, .form-input {
+    display: block;
+}
+
+.form-input {
+    margin-bottom: 15px;
+}
+
+.legend {
+    margin-bottom: 5px;
+}
+
+.form-input {
+    padding: 9px 10px;
+    border-radius: 7px;
+    width: 92%;
+    outline: 1px solid #0000004a;
+    border: none;
+}
+
+.form-input:hover {
+    cursor: text;
+}
+
+input:focus-visible {
+    outline: 1px solid #00631b;
+}
+
+.auth_form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.auth_title {
+    text-align: left;
+}
+
+.auth_form_btn {
+    margin-top: 35px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    background: rgb(15,121,92);
+    color: #fff;
+    background: linear-gradient(90deg, rgba(15,121,92,1) 0%, rgba(8,107,56,1) 54%, rgba(31,50,38,1) 100%);
+    border: none;
+}
+
+.auth_form_btn:hover {
+    cursor: pointer;
+}
+
+.flexBox_right {
+    width: 800px;
+    height: 600px;
+    background-image: url('/src/public/assets/img/main.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
