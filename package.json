@@ -30,8 +30,6 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2"
+
   }
 }
