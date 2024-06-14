@@ -10,7 +10,7 @@ const fileName = (ext) => isDev ? `[name].${ext}` : `[name].[contenthash].${ext}
 module.exports = {
     entry: {
         index: './src/scripts/index.js',
-        api: './src/scripts/api.js'
+        auth: './src/scripts/auth.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

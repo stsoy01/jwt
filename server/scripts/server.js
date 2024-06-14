@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser')
+const fs = require('fs')
 
 app.use(cors({
   origin: 'http//:localhost:1000',
@@ -9,13 +10,20 @@ app.use(cors({
   methods: 'GET,PUT,POST'
 }))
 
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post('/auth', (req, res) => {
-  console.log(req.body)
-  res.json('ok')
-  // res.json({msg: 'This is CORS-enabled for all origins!'})
+  let userData;
+
+  fs.readFile('../data/user.json', 'utf8', (err, data) => {
+    console.log(data);
+  })
+
+
+  res.json(req.body)
 })
 
 

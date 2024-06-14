@@ -1,5 +1,5 @@
 import '../styles/style.css';
-import { verifyUser } from './auth';
+import { verifyUser } from './auth'
 
 
 
@@ -16,7 +16,7 @@ button.addEventListener('click', (e) => {
     alert('fill all inputs')
     return;
   }
-
+  
   verifyUser('http://localhost:2000/auth', authData)
     .then(res => res.text())
     .then(res => console.log(res))
