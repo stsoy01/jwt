@@ -1,5 +1,5 @@
 import '../styles/style.css';
-import {verifyUser} from './auth';
+import {verifyAccessToken, verifyUser} from './auth';
 
 
 const email_btn = document.getElementsByClassName('email_btn')[0];
@@ -35,7 +35,26 @@ email_btn.addEventListener('click', (e) => {
 
 password_btn.addEventListener('click', () => {
     authData.password = password.value;
+
+    if (!Object.values(authData)[1]) {
+        alert('Password field can`t be empty');
+        return;
+    }
+
+    let accessToken
     verifyUser('http://localhost:2000/auth', authData)
         .then(res => res.text())
-        .then(res => console.log(res));
+        .then(res => accessToken = JSON.parse(res).accessToken);
+
+
+    setTimeout(() => {
+        if (!accessToken) {
+            alert('no such email or password');
+            return;
+        }
+
+        verifyAccessToken('http://localhost:2000/tokenAuth', accessToken)
+            .then(r => r.text())
+    }, 1000)
+
 })
