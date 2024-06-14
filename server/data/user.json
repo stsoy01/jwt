@@ -1,4 +1,17 @@
-{
-  "email": "stsoy01@gmail.com",
-  "password": "123"
-}
+[
+  {
+    "id": 1,
+    "email": "admin",
+    "password": "admin1"
+  },
+  {
+    "id": 2,
+    "email": "stsoy01@gmail.com",
+    "password": "123"
+  },
+  {
+    "id": 3,
+    "email": "jwt@gmail.com",
+    "password": "123"
+  }
+]

@@ -48,9 +48,6 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
 }
 
-.form-input {
-    margin-bottom: 15px;
-}
 
 .legend {
     margin-bottom: 5px;
@@ -82,7 +79,7 @@ input:focus-visible {
 }
 
 .auth_form_btn {
-    margin-top: 35px;
+    margin-top: 20px;
     padding: 10px;
     width: 100%;
     border-radius: 8px;
