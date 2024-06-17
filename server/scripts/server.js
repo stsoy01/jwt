@@ -21,14 +21,20 @@ app.use(bodyParser.json());
 
 app.post('/auth', (req, res) => {
     const result = users.some((user) => user.email === req.body.email && user.password === req.body.password)
-    if (!result) {
-        res.json({status: 'No such email or password'})
 
+    if (!result) {
+        res.status(403).json({
+            status: 'error',
+            value: 'No such email or password'
+        });
+        return;
     }
 
-
     const accessToken = jwt.sign(req.body, process.env.ACCESS_TOKEN, {expiresIn: '1h'});
-    res.json({accessToken: accessToken})
+    res.json({
+        status: 'success',
+        value: accessToken
+    });
 })
 
 app.get('/tokenAuth', (req, res, next) => {
@@ -48,7 +54,10 @@ app.get('/tokenAuth', (req, res, next) => {
 
     if (!result.success) return res.status(403).json({error: result.error});
 
-    res.json({status: 'success'})
+    res.json({
+        status: 'success',
+        value: 'Authorization completed'
+    })
 })
 
 

@@ -6,6 +6,7 @@ const email_btn = document.getElementsByClassName('email_btn')[0];
 const password_btn = document.getElementsByClassName('password_btn')[0];
 const email = document.getElementById('email');
 const password = document.getElementById('password');
+const back_btn = document.getElementById('back_btn');
 
 const auth_email = document.getElementsByClassName('auth_email')[0];
 const auth_password = document.getElementsByClassName('auth_password')[0];
@@ -14,6 +15,18 @@ const authData = {};
 password.style.display = 'none';
 auth_password.style.display = 'none';
 password_btn.style.display = 'none';
+back_btn.style.opacity = '0';
+back_btn.style.paddingLeft = '14px';
+
+back_btn.addEventListener('click', ()=> {
+    back_btn.style.opacity = '0';
+    password_btn.style.display = 'none';
+    auth_password.style.display = 'none';
+    password.style.display = 'none';
+    email.style.display = 'block';
+    email_btn.style.display = 'block';
+    auth_email.style.display = 'block';
+})
 
 
 email_btn.addEventListener('click', (e) => {
@@ -27,6 +40,7 @@ email_btn.addEventListener('click', (e) => {
     password.style.display = 'block';
     auth_password.style.display = 'block';
     password_btn.style.display = 'block';
+    back_btn.style.opacity = '1';
 
     auth_email.style.display = 'none';
     email.style.display = 'none';
@@ -41,20 +55,23 @@ password_btn.addEventListener('click', () => {
         return;
     }
 
-    let accessToken
+    let data;
+
     verifyUser('http://localhost:2000/auth', authData)
         .then(res => res.text())
-        .then(res => accessToken = JSON.parse(res).accessToken);
+        .then(res => data = JSON.parse(res));
 
 
     setTimeout(() => {
-        if (!accessToken) {
-            alert('no such email or password');
+
+        if (data.status === 'error') {
+            alert(data.value)
             return;
         }
 
-        verifyAccessToken('http://localhost:2000/tokenAuth', accessToken)
-            .then(r => r.text())
+        verifyAccessToken('http://localhost:2000/tokenAuth', data.value)
+            .then(res => res.text())
+            .then(res => alert(JSON.parse(res).value))
     }, 1000)
 
 })

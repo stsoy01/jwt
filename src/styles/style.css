@@ -69,6 +69,17 @@ input:focus-visible {
     outline: 1px solid #00631b;
 }
 
+.back_btn {
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.back_btn:hover {
+    cursor: pointer;
+}
+
 .auth_form {
     max-width: 300px;
     margin: 0 auto;
@@ -83,9 +94,9 @@ input:focus-visible {
     padding: 10px;
     width: 100%;
     border-radius: 8px;
-    background: rgb(15,121,92);
+    background: rgb(15, 121, 92);
     color: #fff;
-    background: linear-gradient(90deg, rgba(15,121,92,1) 0%, rgba(8,107,56,1) 54%, rgba(31,50,38,1) 100%);
+    background: linear-gradient(90deg, rgba(15, 121, 92, 1) 0%, rgba(8, 107, 56, 1) 54%, rgba(31, 50, 38, 1) 100%);
     border: none;
 }
 
